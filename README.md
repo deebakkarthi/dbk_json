@@ -1,2 +1,2 @@
 # json
-STB-style JSON Parser in ANSI C
+stb-style single-file public domain ANSI C JSON Parser

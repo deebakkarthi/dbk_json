@@ -1,0 +1,13 @@
+%token TOK_LEFT_SQUARE_BRACKET
+%token TOK_LEFT_CURLY_BRACKET
+%token TOK_RIGHT_SQUARE_BRACKET
+%token TOK_RIGHT_CURLY_BRACKET
+%token TOK_COLON
+%token TOK_COMMA
+%token TOK_TRUE
+%token TOK_FALSE
+%token TOK_NULL
+%token TOK_WHITESPACE
+%%
+prog: ;
+%%

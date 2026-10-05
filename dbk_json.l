@@ -1,5 +1,6 @@
 %{
 #include "y.tab.h"
+void yyerror(char*);
 %}
 
 %%
@@ -30,8 +31,8 @@ null			{ return TOK_NULL; }
  * ==================
  * string ::= "\"" [ (<code_point> | <escape_sequence>)* ] "\""
  */
-\"(([^\x00-\x1F\x22\x5C]|\\([\"\\\/bfnrt]|u[0-9a-fA-F]{4}))*)?\" { return TOK_STRING; }
+\"([^\x00-\x1F\x22\x5C]|(\\([\"\\\/bfnrt]|u([0-9a-fA-F]{4}))))*\" { return TOK_STRING; }
 
  /*TODO: Error out other characters*/
-.			{ /*EMPTY*/; }
+.	{ yyerror("invalid character"); return *yytext; }
 %%

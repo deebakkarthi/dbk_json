@@ -29,7 +29,8 @@
  * Section 5. JSON Value
  * =====================
  */
-value: object
+
+value: object     { printf("object\n"); }
      | array      { printf("array\n"); }
      | TOK_NUMBER { printf("number\n"); }
      | TOK_STRING { printf("string\n"); }
@@ -80,19 +81,14 @@ value_opt_rep: /*EMPTY*/
 %%
 
 extern FILE *yyin;
-
+extern char *yytext;
 void yyerror(char *s)
 {
-      fprintf(stderr, "%s\n", s);
+	fprintf(stderr, "%s TOK:%s\n", s, yytext);
 }
 
 int main()
 {
-      do{
-            if(yyparse()){
-                  return 1;
-            }
-      }while(!feof(yyin));
-      return 0;
+      return yyparse();
 }
 

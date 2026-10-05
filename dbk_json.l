@@ -25,7 +25,7 @@ null			{ return TOK_NULL; }
  *            [ "." <digit>+ ]
  *            [ ("e"|"E") ["+"|"-"] <digit>+ ] 
  */
--?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]*)? { return TOK_NUMBER; }
+-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)? { return TOK_NUMBER; }
  /*
  * Section 9. Strings
  * ==================

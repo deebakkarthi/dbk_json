@@ -30,13 +30,13 @@
  * =====================
  */
 
-value: object     { printf("object\n"); }
-     | array      { printf("array\n"); }
-     | TOK_NUMBER { printf("number\n"); }
-     | TOK_STRING { printf("string\n"); }
-     | TOK_TRUE   { printf("true\n"); }
-     | TOK_FALSE  { printf("false\n"); }
-     | TOK_NULL   { printf("null\n"); }
+value: object
+     | array
+     | TOK_NUMBER
+     | TOK_STRING
+     | TOK_TRUE
+     | TOK_FALSE
+     | TOK_NULL
      ;
 
  /*
@@ -80,8 +80,8 @@ value_opt_rep: /*EMPTY*/
 	       ;
 %%
 
-extern FILE *yyin;
 extern char *yytext;
+
 void yyerror(char *s)
 {
 	fprintf(stderr, "%s TOK:%s\n", s, yytext);
@@ -91,4 +91,3 @@ int main()
 {
       return yyparse();
 }
-

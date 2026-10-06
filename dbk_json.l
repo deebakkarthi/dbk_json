@@ -2,7 +2,8 @@
 #include "y.tab.h"
 void yyerror(char*);
 %}
-
+ /*Force yytext to be `char *`*/
+%pointer
 %%
  /*Structural Tokens*/
 \[			{ return TOK_LEFT_SQUARE_BRACKET; }
